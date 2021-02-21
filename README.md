@@ -17,23 +17,28 @@ This repository contains the scripts/configs to run the official Docker image of
       export _AIRFLOW_WWW_USER_LASTNAME="airflow"
       export _AIRFLOW_WWW_USER_EMAIL="airflow@example.com"
 
-2. Confirm the configs in ```./config/airflow.cfg```
-    - ```rbac``` is set to ```True``` for enhanced security
-    - ```auth_backend``` is set to ```airflow.contrib.auth.backends.password_auth```
-    - ```load_examples``` is set to ```False```
-    - Everything else is default values
-
-3. Run Airflow via the following command
+2. Run Airflow via the following command
 ```bash
 bash ./run_docker.sh
 ```
 
-4. Check the Web UI at ```http://localhost:8080``` (local) or ```http://your_ip_address:8080``` (server) and log in using the username and password set in step 1. 
+3. Check the Web UI at ```http://localhost:8080``` (local) or ```http://your_ip_address:8080``` (server) and log in using the username and password set in step 1.
+
+4. Use ```./airflow.sh``` to access Python or Bash console
+```./airflow.sh bash```
+```./airflow.sh python```
 
 5. To stop and delete containers, run
 ```bash
 docker-compose down --volumes --rmi all
 ```
+
+## Advanced setup
+- Airflow config setup
+    - The airflow config file is at ```./config/airflow.cfg```. Check out [this](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html) page for more details.
+
+- Python package dependencies
+    - Add packages to ```requirements.txt```
 
 Hope you enjoy Airflow!
 
